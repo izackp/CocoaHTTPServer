@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3C9A2FF4-076B-4F73-9CEA-F1B43A6E75FE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleHTTPServer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
+		<string>https://github.com/izackp/CocoaHTTPServer.git</string>
+		<key>B5F272A4E30A29CFD75330C1808BA84735DD2B12</key>
+		<string>snapshots.unfuddle.com:snapshots/sighthoundapp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Samples/SimpleHTTPServer/SimpleHTTPServer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</key>
+		<string>../../../..</string>
+		<key>B5F272A4E30A29CFD75330C1808BA84735DD2B12</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/izackp/CocoaHTTPServer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B5F272A4E30A29CFD75330C1808BA84735DD2B12</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>71CFC0DE1DEFC877B0C5B9F98B971EBA2921D608</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CocoaHTTPServer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

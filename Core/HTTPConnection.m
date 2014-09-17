@@ -3,6 +3,7 @@
 #import "HTTPConnection.h"
 #import "HTTPMessage.h"
 #import "HTTPResponse.h"
+#import "HTTPProxyResponse.h"
 #import "HTTPAuthenticationRequest.h"
 #import "DDNumber.h"
 #import "DDRange.h"
@@ -989,7 +990,7 @@ static NSMutableArray *recentNonces;
 	// Note: We already checked to ensure the method was supported in onSocket:didReadData:withTag:
 	
 	// Respond properly to HTTP 'GET' and 'HEAD' commands
-	httpResponse = [self httpResponseForMethod:method URI:uri];
+    httpResponse = [self httpResponseForMethod:method URI:uri request:request];
 	
 	if (httpResponse == nil)
 	{
@@ -1190,14 +1191,21 @@ static NSMutableArray *recentNonces;
 	}
 	else
 	{
-		if ([ranges count] == 1)
-		{
-			response = [self newUniRangeResponse:contentLength];
-		}
-		else
-		{
-			response = [self newMultiRangeResponse:contentLength];
-		}
+        if ([ranges count] == 1)
+        {
+            if (true) {
+                HTTPProxyResponse * proxyResponse = (HTTPProxyResponse *)httpResponse;
+                response = [proxyResponse remoteResponse];
+            }
+            else
+            {
+                response = [self newUniRangeResponse:contentLength];
+            }
+        }
+        else
+        {
+            response = [self newMultiRangeResponse:contentLength];
+        }
 	}
 	
 	BOOL isZeroLengthResponse = !isChunked && (contentLength == 0);
@@ -1682,6 +1690,11 @@ static NSMutableArray *recentNonces;
 	}
 	
 	return nil;
+}
+
+- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path request:(HTTPMessage*)request
+{
+    return [self httpResponseForMethod:method URI:path];
 }
 
 - (WebSocket *)webSocketForURI:(NSString *)path
