@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class HTTPMessage;
 
 @protocol HTTPResponse
 
@@ -26,6 +27,7 @@
  * To support asynchronous responses, read the discussion at the bottom of this header.
 **/
 - (NSData *)readDataOfLength:(NSUInteger)length;
+- (void)modifyHeader:(HTTPMessage*)message;
 
 /**
  * Should only return YES after the HTTPConnection has read all available data.

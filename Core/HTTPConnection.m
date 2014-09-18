@@ -1193,14 +1193,7 @@ static NSMutableArray *recentNonces;
 	{
         if ([ranges count] == 1)
         {
-            if (true) {
-                HTTPProxyResponse * proxyResponse = (HTTPProxyResponse *)httpResponse;
-                response = [proxyResponse remoteResponse];
-            }
-            else
-            {
-                response = [self newUniRangeResponse:contentLength];
-            }
+            response = [self newUniRangeResponse:contentLength];
         }
         else
         {
@@ -1223,7 +1216,9 @@ static NSMutableArray *recentNonces;
 	else
 	{
 		// Write the header response
-		NSData *responseData = [self preprocessResponse:response];
+        [httpResponse modifyHeader:response];
+        NSData *responseData = [self preprocessResponse:response];
+        NSLog(@"Sending response to app: %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 		[asyncSocket writeData:responseData withTimeout:TIMEOUT_WRITE_HEAD tag:HTTP_PARTIAL_RESPONSE_HEADER];
 		
 		sentResponseHeaders = YES;
@@ -2529,7 +2524,7 @@ static NSMutableArray *recentNonces;
 		}
 		else
 		{
-			if (ranges == nil)
+			if ([ranges count] == 0)//TODO: Report this bug fix
 			{
 				[self continueSendingStandardResponseBody];
 			}
