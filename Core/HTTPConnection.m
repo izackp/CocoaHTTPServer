@@ -1218,7 +1218,7 @@ static NSMutableArray *recentNonces;
 		// Write the header response
         [httpResponse modifyHeader:response];
         NSData *responseData = [self preprocessResponse:response];
-        NSLog(@"Sending response to app: %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+        //NSLog(@"Sending response to app: %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 		[asyncSocket writeData:responseData withTimeout:TIMEOUT_WRITE_HEAD tag:HTTP_PARTIAL_RESPONSE_HEADER];
 		
 		sentResponseHeaders = YES;
